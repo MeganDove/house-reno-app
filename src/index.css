@@ -1,0 +1,172 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/*Menu*/
+.menu {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 80px;
+}
+
+.menu button {
+    padding: 20px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    text-align: right;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    float: right;
+}
+
+.menu button:hover {
+    background-color: #555;
+}
+
+/* Header */
+.header {
+    background-color: #333;
+    overflow: hidden;
+}
+
+#login {
+    float: right;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+#login:hover {
+    background-color: #555;
+}
+
+/* Main Content */
+#main-contents {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+/* Tiles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.tile {
+    background-color: #ddd;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.tile:hover {
+    background-color: #b1b1b1;
+}
+
+.tile.highlight {
+    background-color: #de9e94;
+}
+
+.tile.highlight:hover {
+    background-color: #da614e;
+}
+/*
+.tile .tile-header {
+  background-color: #b1b1b1;
+  width: 100%;
+  height: 30px;
+  top: 0;
+}*/
+
+.tile h1 {
+  font-size: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.tile .tile-text-row {
+   margin-bottom: 10px;
+   text-align: left;
+}
+
+.tile h3 {
+  font-size: 13px;
+  display: inline;
+}
+
+.tile p {
+  font-size: 12px;
+  display: inline;
+}
+
+/* Task Modal */
+
+.task-modal {
+    background-color: #ddd;
+    border-radius: 10px;
+    border: none;
+    width: 50%;
+}
+
+.task-grid-container {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 25% 75%;
+}
+
+.task-modal .close-button {
+  float: right;
+}
+
+.task-modal .task-text-row {
+   margin-bottom: 20px;
+   text-align: left;
+   margin-top: 10px;
+}
+
+.task-modal .label {
+  font-size: 18px;
+  display: inline;
+  padding-right: 10px;
+}
+
+.task-modal .editable-field {
+  font-size: 15px;
+  display: inline;
+  margin-right: 5px;
+  border-style: hidden;
+  border-width: 1px;
+}
+
+.task-modal .editable-field.editing {
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.task-modal .editable-field.title {
+  font-size: 25px;
+}
+
+.contact-list {
+
+}
+
+.contact-list-item {
+
+}
