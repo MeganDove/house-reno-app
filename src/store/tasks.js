@@ -8,10 +8,12 @@ const EXAMPLE_TASKS = [
     description: "This is a test",
     actionableBy: "megan.dove",
     status: "Waiting for call from plumber",
+    notes: "",
     todos: [
       {
         id: "90iw3ed",
-        text: "Test todo"
+        text: "Test todo",
+        completed: false
       }
     ],
     contacts: [{
@@ -29,10 +31,12 @@ const EXAMPLE_TASKS = [
     description: "This is a test",
     actionableBy: "megan.dove",
     status: "Book electrician in",
+    notes: "",
      todos: [
       {
         id: "90iw3ed",
-        text: "Test todo"
+        text: "Test todo",
+        completed: false
       }
     ],
     contacts: [{
@@ -50,10 +54,12 @@ const EXAMPLE_TASKS = [
     description: "This is a test",
     actionableBy: "megan.dove",
     status: "Choose a removal company",
+    notes: "",
      todos: [
       {
         id: "90iw3ed",
-        text: "Test todo"
+        text: "Test todo",
+        completed: false
       }
     ],
     contacts: [{
@@ -71,10 +77,12 @@ const EXAMPLE_TASKS = [
     description: "This is a test",
     actionableBy: "megan.dove",
     status: "Remove wallpaper",
+    notes: "",
      todos: [
       {
         id: "90iw3ed",
-        text: "Test todo"
+        text: "Test todo",
+        completed: false
       }
     ],
     contacts: [{
@@ -113,10 +121,31 @@ const slice = createSlice({
     deleteTask(state, action) {
       //TODO
     },
-    updateTask(state, action) {
+    updateTaskSingleValue(state, action) {
       let {taskId, fieldId, value} = action.payload;
       const taskIndex = state.tasks.findIndex((task) => taskId === task.id);
-      state.tasks[taskIndex].fieldId = value;
+      state.tasks[taskIndex][fieldId] = value;
+    },
+    updateTaskListValue(state, action) {
+      let {taskId, fieldId, elementId, elementFieldId, value} = action.payload;
+      const taskIndex = state.tasks.findIndex((task) => taskId === task.id);
+      const elementIndex = elementId && state.tasks[taskIndex][fieldId].findIndex((el) => elementId === el.id);
+      if(elementIndex > -1) {
+        state.tasks[taskIndex][fieldId][elementIndex][elementFieldId] = value;
+      } else {
+        const newIndex = uuidv4();
+        if(state.tasks[taskIndex][fieldId]) {
+          state.tasks[taskIndex][fieldId].push({...value, id: newIndex});
+        } else {
+          state.tasks[taskIndex][fieldId] = [{...value, id: newIndex}];
+        }
+      }      
+    },
+    deleteTaskListItem(state, action) {
+      let {taskId, fieldId, elementId} = action.payload;
+      const taskIndex = state.tasks.findIndex((task) => taskId === task.id);
+      const elementIndex = elementId && state.tasks[taskIndex][fieldId].findIndex((el) => elementId === el.id);
+      state.tasks[taskIndex][fieldId].splice(elementIndex, 1);
     }
   }
 });

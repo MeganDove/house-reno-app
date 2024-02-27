@@ -44,8 +44,14 @@ const Task = forwardRef(function Task({task}, ref) {
 	});
 
 	function handleUpdateTask(fieldId, value) {
-		dispatch(tasksActions.updateTask({taskId: task.id, fieldId: fieldId, value: value}));
+		dispatch(tasksActions.updateTaskSingleValue({taskId: task.id, fieldId: fieldId, value: value}));
 	}
+
+	function handleUpdateTodo(elementId, elementFieldId, value) {
+		dispatch(tasksActions.updateTaskListValue({taskId: task.id, fieldId: "todos", elementId: elementId, value: value}));
+	}
+
+	console.log(task);
 
 	const userOptions = convertUsersToOptions(users);
 
@@ -72,7 +78,7 @@ const Task = forwardRef(function Task({task}, ref) {
 								 />
 							</div>
    							<div className="task-text-row">
-								 <p className="label">Status:</p>
+								 <p className="label title-label">Status:</p>
 								 <EditableTextField 
 								 	value={task.status}
 								 	fieldId="status"
@@ -82,7 +88,7 @@ const Task = forwardRef(function Task({task}, ref) {
 						</div>
 						<div className="task-actionable-by">
 							<div className="task-text-row">
-								<h3 className="label">Actionable by:</h3>
+								<h3 className="label title-label">Actionable by:</h3>
 								<DropdownField 
 								 	value={task.actionableBy}
 								 	fieldId="actionableBy"
@@ -93,12 +99,19 @@ const Task = forwardRef(function Task({task}, ref) {
 						</div>
 						<div className="task-main-contents">
 							<div className="task-text-row">
-								 <p className="label">Contacts:</p>
-								 <Contacts contacts={task.contacts || []} onUpdateContacts={handleUpdateTask}/>
+								 <p className="label title-label">Notes:</p>
+								 <EditableTextField 
+								 	value={task.notes}
+								 	fieldId="notes"
+								 	onUpdateField={handleUpdateTask}
+								 	type="paragraph"
+								 />
 							</div>
 							<div className="task-text-row">
-								 <p className="label">To Do:</p>
-								 <TodoList todos={task.todos || []} onUpdateContacts={handleUpdateTask}/>
+								<Contacts taskId={task.id} contacts={task.contacts || []}/>
+							</div>
+							<div className="task-text-row">
+								 <TodoList title="To do:" taskId={task.id} todos={task.todos || []} onUpdateTodo={handleUpdateTodo}/>
 							</div>
 						</div>
 					</div>

@@ -16,17 +16,29 @@ const NewTask = forwardRef(function NewTask({}, ref) {
 		ref.current.close();
 	}
 
+	function handleKeyPress(e) {
+		const key = e.key;
+		if(key === "Enter") {
+			handleSaveNewProject();
+		}
+	}
+
 	function handleClose() {
 		newTaskTitle.current.value = "";
 	}
 
 	return createPortal(
 		(
-			<dialog ref={ref} onClose={handleClose} className="bg-slate-600 rounded-lg">
-				<div className="py-6 px-10">
-					<h1 className="mb-8 font-bold md:text-xl text-slate-100 ">Create a new task</h1>
-					<label className="mb-8 font-bold md:text-l text-slate-200 mr-5">Title:</label> 
-					<input ref={newTaskTitle} type="text" className="w-96 rounded-lg p-1 md:text-l mr-10" />
+			<dialog ref={ref} CloseOnEscape={true} onClose={handleClose} className="">
+				<form method="dialog">
+					<button className="close-button">
+						x
+					</button>
+				</form>
+				<div className="">
+					<h1 className="">Create a new task</h1>
+					<label className="">Title:</label> 
+					<input ref={newTaskTitle} type="text" className="" />
 					<TickIcon onClick={handleSaveNewProject}>&#10003;</TickIcon>
 				</div>
 			</dialog>

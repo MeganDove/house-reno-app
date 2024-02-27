@@ -1,29 +1,33 @@
 import Contact from "./Contact.jsx";
 
-export default function Contacts({contacts, onUpdateContacts}) {
+import { useDispatch } from "react-redux";
+import { tasksActions } from "../store/tasks.js";
 
-	function handleUpdateContact(contactId, fieldId, newText) {
-		console.log(contacts);
-		let newContacts = [...contacts];
-		let contactToReplace = newContacts.find((contact) => contact.id === contactId);
-		contactToReplace[fieldId] = newText;
-		console.log(newContacts);
-		onUpdateContacts("contacts", newContacts);
+export default function Contacts({taskId, contacts}) {
+	const dispatch = useDispatch();
+
+	function handleAddNewContact() {
+		dispatch(tasksActions.updateTaskListValue({taskId: taskId, fieldId: "contacts", value: {}}));
 	}
 
 	return (
-		<ul className="contacts-list">
-			{contacts.map((contact) => {
-				return (
-					//<li ref={contact.id}>
-					<li>
-						<Contact 
-							contact={contact}
-							onUpdateContact={handleUpdateContact}
-						/>
-					</li>
-				);
-			})}
-		</ul>
+		<div className="contacts-section">
+			<p className="label contacts-label title-label">Contacts:</p>
+			<div>
+				<button className="add-button" id="contacts-add" onClick={handleAddNewContact}>Add new</button>
+			</div>
+			<ul className="contacts-list">
+				{contacts.map((contact) => {
+					return (
+						<li key={contact.id}>
+							<Contact
+								taskId={taskId}
+								contact={contact}
+							/>
+						</li>
+					);
+				})}
+			</ul>
+		</div>
 	);
 };

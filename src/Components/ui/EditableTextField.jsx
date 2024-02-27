@@ -3,9 +3,11 @@ import Select from "react-select";
 
 import TickIcon from "./TickIcon.jsx";
 
-export default function EditableTextField({value, fieldId, onUpdateField, classNames}) {
+export default function EditableTextField({value, fieldId, onUpdateField, classNames, type}) {
 	const [isEditingText, setIsEdtitingText] = useState(false);
 	const [currentText, setCurrentText] = useState(value);
+
+	const usePlaceHolderText = !currentText;
 
 	function handleEditText() {
 		setIsEdtitingText(true);
@@ -33,17 +35,27 @@ export default function EditableTextField({value, fieldId, onUpdateField, classN
 				!isEditingText &&
 					<p
 						onClick={() => handleEditText()}
-						className={"editable-field "+classNames}
-					>{currentText}</p>
+						className={"editable-field "+(type || "input ")+(classNames || "")+(usePlaceHolderText ? " placeholder-text" : "")}
+					>{currentText || "Click to enter"}</p>
 			}
 			{
 				isEditingText &&
-					<input
-						value={currentText}
-						onChange={() => handleUpdateText(event)}
-						onKeyPress={(e) => handleKeyPress(e)}
-						className={"editable-field editing "+classNames}
-					/>
+					(
+						type === "paragraph" ?
+							<textarea 
+								className={"editable-field editing "+(type || "input ")+(classNames || "")}
+								rows={4}
+								cols={50}
+								value={currentText}
+								onChange={() => handleUpdateText(event)}
+							/> :
+							<input
+								value={currentText}
+								onChange={() => handleUpdateText(event)}
+								onKeyPress={(e) => handleKeyPress(e)}
+								className={"editable-field editing "+(type || "input ")+(classNames || "")}
+							/>
+					)
 			}
 			{
 				isEditingText &&

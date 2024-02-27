@@ -1,19 +1,39 @@
 import EditableTextField from "./ui/EditableTextField.jsx";
+import BinIcon from "./ui/BinIcon.jsx";
 
-export default function Contact({item}) {
-	const staticFieldClass = "md:text-l text-slate-200 rounded-lg border-solid border-4 border-transparent hover:border-amber-600 p-0.5";
-	const editableFieldClass = "md:text-l text-slate-600 rounded-lg focus:border-solid focus:border-blue-400 p-0.5";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+
+import { tasksActions } from "../store/tasks.js";
+
+export default function Contact({taskId, item}) {
+	const dispatch = useDispatch();
+
+	function handleUpdateTodo(elementFieldId, value) {
+		dispatch(tasksActions.updateTaskListValue({taskId: taskId, fieldId: "todos", elementId: item.id, elementFieldId: elementFieldId, value: value}));
+	}
+
+	function handleDeleteTodo() {
+		dispatch(tasksActions.deleteTaskListItem({taskId: taskId, fieldId: "todos", elementId: item.id}));
+	}
+
+	function handleToggleCompleted() {
+		dispatch(tasksActions.updateTaskListValue({taskId: taskId, fieldId: "todos", elementId: item.id, elementFieldId: "completed", value: !item.completed}));
+	}
 
 	return (
-		<li key={item.id} className="p-2 mb-4">
-			<EditableTextField 
-				staticFieldClass={staticFieldClass}
-			 	editableFieldClass={editableFieldClass}
-			 	value={item.text}
-			 	fieldId="todos"
-			 	onUpdateField={() => {}}
-			 />
-		</li>
-		
+		<div className="todo-item-section">
+			<div className="todo-details">
+				<EditableTextField 
+				 	value={item.text}
+				 	fieldId="text"
+				 	onUpdateField={handleUpdateTodo}
+				 	//TODO: add this to ediabletextfield
+				 	editable={item.completed}
+				 	classNames={item.completed ? " strikethrough" : ""}
+				/>
+			</div>
+			<BinIcon onClick={handleDeleteTodo} />
+		</div>
 	);
 };

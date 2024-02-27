@@ -3,6 +3,15 @@ body {
   font-family: sans-serif;
 }
 
+::backdrop
+{
+    background: rgba(0,0,0,0.5);
+}
+
+button {
+    cursor: pointer;
+}
+
 /*Menu*/
 .menu {
     height: 100%;
@@ -22,7 +31,6 @@ body {
     display: block;
     text-align: right;
     background-color: transparent;
-    cursor: pointer;
     border: none;
     float: right;
 }
@@ -72,6 +80,8 @@ body {
     cursor: pointer;
     border-radius: 10px;
     padding: 20px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
 }
 
 .tile:hover {
@@ -127,7 +137,7 @@ body {
 .task-grid-container {
   display: grid;
   grid-template-columns: 75% 25%;
-  grid-template-rows: 25% 75%;
+  grid-template-rows: 60px;
 }
 
 .task-modal .close-button {
@@ -135,23 +145,36 @@ body {
 }
 
 .task-modal .task-text-row {
-   margin-bottom: 20px;
    text-align: left;
    margin-top: 10px;
 }
 
 .task-modal .label {
-  font-size: 18px;
+  font-size: 16px;
   display: inline;
   padding-right: 10px;
 }
 
+.title-label {
+    font-weight: 600;
+}
+
 .task-modal .editable-field {
   font-size: 15px;
-  display: inline;
   margin-right: 5px;
   border-style: hidden;
   border-width: 1px;
+  cursor: pointer;
+  display: inline;
+}
+
+.task-modal .editable-field.paragraph {
+  display: block;
+  white-space: pre-line;
+}
+
+.task-modal .editable-field.placeholder-text {
+  color: #505050;
 }
 
 .task-modal .editable-field.editing {
@@ -159,14 +182,130 @@ body {
   padding: 3px;
 }
 
-.task-modal .editable-field.title {
-  font-size: 25px;
+.task-modal .editable-field.editing.paragraph {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.contact-list {
+.task-main-contents {
+    margin-top: 20px;
+}
 
+.task-modal .editable-field.title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* Contacts */
+
+.contacts-section {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 30px;
+    align-items: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 100%;
+}
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.contact-details {
+    padding-right: 15px;
+    text-wrap: wrap;
+}
+
+.contacts-list {
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .contact-list-item {
 
+}
+
+/* To Do list */
+
+.todo-section {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 30px;
+    align-items: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 100%;
+}
+
+.todo-item-section {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.todo-details {
+    padding-right: 15px;
+}
+
+.todo-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* UI */
+
+#tick-icon {
+    display: inline;
+}
+
+.add-button {
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+    color: #fff;
+    background-color: #ffa571;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    float: right;
+}
+
+.add-button:hover {
+    background-color: #ff995d;
+}
+
+#contacts-add {
+    width: 80px;
+}
+
+#todo-add {
+    width: 50px;
+}
+
+#bin-icon {
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+    color: #fff;
+    background-color: #ff604c;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 25px;
+}
+
+#bin-icon:hover {
+    background-color: #ff3d25;
 }
