@@ -29,7 +29,7 @@ const NewTask = forwardRef(function NewTask({}, ref) {
 
 	return createPortal(
 		(
-			<dialog ref={ref} CloseOnEscape={true} onClose={handleClose} className="">
+			<dialog ref={ref} onClose={handleClose} className="">
 				<form method="dialog">
 					<button className="close-button">
 						x

@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-	currentPage: "tasks"
+	currentPage: "tasks",
+	notification: null
 }
 
 const slice = createSlice({
@@ -10,6 +11,13 @@ const slice = createSlice({
 	reducers: {
 		setCurrentPage(state, action) {
 			state.currentPage = action.payload;
+		},
+		showNotification: (state, action) => {
+			state.notification = {
+				status: action.payload.status,
+				title: action.payload.title,
+				message: action.payload.message
+			};
 		}
 	}
 })
