@@ -1,0 +1,34 @@
+@mixim inputField {
+  font-size: 15px;
+  margin-right: 5px;
+  border-style: hidden;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline;
+}
+@mixim inputFieldEditing {
+  border-radius: 5px;
+  padding: 3px;
+}
+@mixim taskListGrid {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 30px;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+}
+@mixim taskListItem {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+@mixim taskListItemList {
+  list-style-type: none;
+  padding-left: 0;
+}
+@mixim taskListItemDetails {
+  padding-right: 15px;
+  text-wrap: wrap;
+}/*# sourceMappingURL=variables.css.map */

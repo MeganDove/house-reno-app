@@ -1,0 +1,19 @@
+.new-task-modal {
+  background-color: #ddd;
+  border-radius: 10px;
+  border: none;
+  width: 25%;
+}
+
+.new-task-input {
+  font-size: 15px;
+  margin-right: 5px;
+  border-style: hidden;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline;
+  border-radius: 5px;
+  padding: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+}/*# sourceMappingURL=NewTask.css.map */

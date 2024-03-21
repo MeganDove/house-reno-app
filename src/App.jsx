@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
+import "./Styles/App.scss";
+
 import { pageStateActions } from "./store/pageState.js";
 
 import Menu from "./Components/menu/Menu.jsx";

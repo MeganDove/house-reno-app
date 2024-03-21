@@ -1,5 +1,7 @@
 import { useDispatch } from "react-redux";
 
+import "../../Styles/Menu.css";
+
 import { pageStateActions } from "../../store/pageState.js";
 
 export default function Menu() {

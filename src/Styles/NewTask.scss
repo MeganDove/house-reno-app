@@ -1,0 +1,15 @@
+@import "../Variables/Variables.scss";
+
+.new-task-modal {
+    background-color: $tileGrey;
+    border-radius: 10px;
+    border: none;
+    width: 25%;
+}
+
+.new-task-input {
+    @include inputField();
+    @include inputFieldEditing();
+    margin-left: 5px;
+    margin-right: 5px;
+}

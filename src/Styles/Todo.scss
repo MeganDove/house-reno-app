@@ -1,0 +1,17 @@
+@import "../Variables/Variables.scss";
+
+.todo-section {
+    @include taskListGrid();
+}
+
+.todo-item-section {
+    @include taskListItem();
+}
+
+.todo-details {
+    @include taskListItemDetails();
+}
+
+.todo-list {
+    @include taskListItemList();
+}

@@ -1,0 +1,115 @@
+@mixim inputField {
+  font-size: 15px;
+  margin-right: 5px;
+  border-style: hidden;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline;
+}
+@mixim inputFieldEditing {
+  border-radius: 5px;
+  padding: 3px;
+}
+@mixim taskListGrid {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 30px;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+}
+@mixim taskListItem {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+@mixim taskListItemList {
+  list-style-type: none;
+  padding-left: 0;
+}
+@mixim taskListItemDetails {
+  padding-right: 15px;
+  text-wrap: wrap;
+}
+#x-icon {
+  border-radius: 500px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  color: #333;
+  float: right;
+  display: inline;
+  width: 25px;
+}
+#tick-icon {
+  border-radius: 500px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  color: white;
+  background-color: #00e98f;
+  display: inline;
+  width: 25px;
+}
+#tick-icon:hover {
+  background-color: #00ba72;
+}
+
+#rounded-button {
+  border-radius: 500px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  color: white;
+  background-color: #ffa571;
+  float: right;
+}
+#rounded-button:hover {
+  background-color: #ff995d;
+}
+
+.contacts-add {
+  width: 80px;
+}
+
+.todo-add {
+  width: 50px;
+}
+
+#bin-icon {
+  border-radius: 500px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  color: white;
+  background-color: #ff604c;
+  width: 25px;
+}
+#bin-icon:hover {
+  background-color: #ff3d25;
+}/*# sourceMappingURL=Icons.css.map */

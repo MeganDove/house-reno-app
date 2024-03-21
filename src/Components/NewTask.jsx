@@ -2,7 +2,10 @@ import { forwardRef, useRef, useContext } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch } from "react-redux";
 
+import "../Styles/NewTask.css";
+
 import TickIcon from "./ui/TickIcon.jsx";
+import XIcon from "./ui/XIcon.jsx";
 
 import { tasksActions } from "../store/tasks.js";
 
@@ -29,17 +32,15 @@ const NewTask = forwardRef(function NewTask({}, ref) {
 
 	return createPortal(
 		(
-			<dialog ref={ref} onClose={handleClose} className="">
+			<dialog ref={ref} onClose={handleClose} className="new-task-modal">
 				<form method="dialog">
-					<button className="close-button">
-						x
-					</button>
+					<XIcon />
 				</form>
 				<div className="">
 					<h1 className="">Create a new task</h1>
 					<label className="">Title:</label> 
-					<input ref={newTaskTitle} type="text" className="" />
-					<TickIcon onClick={handleSaveNewProject}>&#10003;</TickIcon>
+					<input ref={newTaskTitle} type="text" className="new-task-input" />
+					<TickIcon onClick={handleSaveNewProject} />
 				</div>
 			</dialog>
 		),

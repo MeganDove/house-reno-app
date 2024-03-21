@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+::backdrop
+{
+    background: rgba(0,0,0,0.5);
+}
+
+button {
+    cursor: pointer;
+}
+

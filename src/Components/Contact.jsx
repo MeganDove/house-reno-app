@@ -1,18 +1,22 @@
-import EditableTextField from "./ui/EditableTextField.jsx";
-import BinIcon from "./ui/BinIcon.jsx";
-
 import { useDispatch } from "react-redux";
 import { tasksActions } from "../store/tasks.js";
 
+import "../Styles/Contacts.css";
+
+import EditableTextField from "./ui/EditableTextField.jsx";
+import BinIcon from "./ui/BinIcon.jsx";
+
 export default function Contact({taskId, contact}) {
 	const dispatch = useDispatch();
-
 	function handleUpdateContact(elementFieldId, value) {
 		dispatch(tasksActions.updateTaskListValue({taskId: taskId, fieldId: "contacts", elementId: contact.id, elementFieldId: elementFieldId, value: value}));
 	}
 
 	function handleDeleteContact() {
-		dispatch(tasksActions.deleteTaskListItem({taskId: taskId, fieldId: "contacts", elementId: contact.id}));
+		const confirm = window.confirm("Are you sure?");
+		if(confirm) {
+			dispatch(tasksActions.deleteTaskListItem({taskId: taskId, fieldId: "contacts", elementId: contact.id}));
+		}
 	}
 
 	return (

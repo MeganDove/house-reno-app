@@ -2,28 +2,18 @@ import { forwardRef, useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
 
+import "../Styles/Task.css";
+
 import Contacts from "./Contacts.jsx";
 import TodoList from "./TodoList.jsx";
 import EditableTextField from "./ui/EditableTextField.jsx";
 import DropdownField from "./ui/DropdownField.jsx";
+import XIcon from "./ui/XIcon.jsx";
 
 import { tasksActions } from "../store/tasks.js";
 
-// ACTIONABLE BY
-// TO DO LIST
-// DESCRIPTION
-// CONTACT DETAILS
-// CURRENT STATUS
-// LINK TO FUNDS?
-
 function convertUsersToOptions(users) {
 	return users.map(({username, displayName}) => { return {value:username, label:displayName} });
-}
-
-//MOVE TO USERS CONTEXT
-function getActionableByDisplayName(actionableBy) {
-	let user = EXAMPLE_USERS.find((user) => actionableBy === user.username);
-	return user.displayName;
 }
 
 const Task = forwardRef(function Task({task}, ref) {
@@ -61,9 +51,7 @@ const Task = forwardRef(function Task({task}, ref) {
 				<main>
 					<div className="top-section">
 						<form method="dialog">
-							<button className="close-button">
-								x
-							</button>
+							<XIcon />
 						</form>
 					</div>
 

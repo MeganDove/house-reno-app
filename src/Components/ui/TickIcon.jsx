@@ -1,8 +1,13 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+
+import "../../Styles/Icons.css";
+
 export default function TickIcon({onClick}) {
 	return (
 		<button
 			id="tick-icon"
 			onClick={onClick}
-		>&#10003;</button>
+		><FontAwesomeIcon icon={faCheck} /></button>
 	);
 };

@@ -1,10 +1,13 @@
-import EditableTextField from "./ui/EditableTextField.jsx";
-import BinIcon from "./ui/BinIcon.jsx";
+
+import "../Styles/Todo.css";
 
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
 import { tasksActions } from "../store/tasks.js";
+
+import EditableTextField from "./ui/EditableTextField.jsx";
+import BinIcon from "./ui/BinIcon.jsx";
 
 export default function Contact({taskId, item}) {
 	const dispatch = useDispatch();
@@ -14,7 +17,10 @@ export default function Contact({taskId, item}) {
 	}
 
 	function handleDeleteTodo() {
-		dispatch(tasksActions.deleteTaskListItem({taskId: taskId, fieldId: "todos", elementId: item.id}));
+		const confirm = window.confirm("Are you sure?");
+		if(confirm) {
+			dispatch(tasksActions.deleteTaskListItem({taskId: taskId, fieldId: "todos", elementId: item.id}));
+		}
 	}
 
 	function handleToggleCompleted() {

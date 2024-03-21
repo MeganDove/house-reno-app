@@ -1,0 +1,53 @@
+@import "../Variables/Variables.scss";
+
+.task-modal {
+    background-color: $tileGrey;
+    border-radius: 10px;
+    border: none;
+    width: 50%;
+    .task-text-row {
+        text-align: left;
+        margin-top: 10px;
+    }
+    .label {
+        font-size: 16px;
+        display: inline;
+        padding-right: 10px;
+    }
+    .editable-field {
+        @include inputField();
+    }
+    .editable-field.paragraph {
+        display: block;
+        white-space: pre-line;
+    }
+    .editable-field.placeholder-text {
+        color: $darkGreyText;
+    }
+    .editable-field.editing {
+        @include inputFieldEditing();
+    }
+    .editable-field.editing.paragraph {
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .editable-field.title {
+        font-size: 25px;
+        font-weight: 700;
+    }
+}
+  
+.task-grid-container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 60px;
+}
+      
+.title-label {
+    font-weight: 600;
+}
+
+.task-main-contents {
+    margin-top: 20px;
+}

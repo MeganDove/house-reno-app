@@ -1,0 +1,79 @@
+@mixim inputField {
+  font-size: 15px;
+  margin-right: 5px;
+  border-style: hidden;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline;
+}
+@mixim inputFieldEditing {
+  border-radius: 5px;
+  padding: 3px;
+}
+@mixim taskListGrid {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 30px;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+}
+@mixim taskListItem {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+@mixim taskListItemList {
+  list-style-type: none;
+  padding-left: 0;
+}
+@mixim taskListItemDetails {
+  padding-right: 15px;
+  text-wrap: wrap;
+}
+.tile {
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 20px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+}
+.tile h1 {
+  font-size: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 25px;
+}
+.tile .tile-text-row {
+  margin-bottom: 10px;
+  text-align: left;
+}
+.tile h3 {
+  font-size: 13px;
+  display: inline;
+}
+.tile p {
+  font-size: 12px;
+  display: inline;
+}
+.tile:hover {
+  background-color: #b1b1b1;
+}
+
+.tile.highlight {
+  background-color: #de9e94;
+}
+.tile.highlight:hover {
+  background-color: #da614e;
+}
+
+/*
+.tile .tile-header {
+  background-color: #b1b1b1;
+  width: 100%;
+  height: 30px;
+  top: 0;
+}*//*# sourceMappingURL=Tile.css.map */

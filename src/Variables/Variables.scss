@@ -1,0 +1,63 @@
+$grey: #333;
+$lightGrey: #555;
+
+$tileGrey: #ddd;
+$tileDarkGrey: #b1b1b1;
+$tileHighlightOrange: #de9e94;
+$tileHighlightDarkOrange: #da614e;
+
+$darkGreyText: #505050;
+
+$greenIcons : #00e98f;
+$darkGreenIcons: #00d180;
+$orangeicons: #ffa571;
+$darkOrangeIcons: #ff995d;
+$redIcons: #ff604c;
+$darkRedIcons: #ff3d25;
+
+@mixin menuItemStyle {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+@mixin menuItemHoverStyle {
+    background-color: $lightGrey;
+}
+
+@mixim inputField {
+    font-size: 15px;
+    margin-right: 5px;
+    border-style: hidden;
+    border-width: 1px;
+    cursor: pointer;
+    display: inline;
+}
+@mixim inputFieldEditing {
+    border-radius: 5px;
+    padding: 3px;
+}
+
+@mixim taskListGrid {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: 30px;
+    align-items: center;
+    word-wrap: break-word;
+    word-break: break-all;
+    max-width: 100%;
+}
+@mixim taskListItem {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+}
+@mixim taskListItemList {
+    list-style-type: none;
+    padding-left: 0;
+}
+@mixim taskListItemDetails {
+    padding-right: 15px;
+    text-wrap: wrap;
+}

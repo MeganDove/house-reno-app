@@ -1,7 +1,10 @@
-import TodoItem from "./TodoItem.jsx";
-
 import { useDispatch } from "react-redux";
 import { tasksActions } from "../store/tasks.js";
+
+import "../Styles/Todo.css";
+
+import TodoItem from "./TodoItem.jsx";
+import Button from "./ui/Button.jsx";
 
 export default function TodoList({title, taskId, todos}) {
 	const dispatch = useDispatch();
@@ -14,7 +17,7 @@ export default function TodoList({title, taskId, todos}) {
 		<div className="todo-section">
 			<p className="label title-label">{title}</p>
 			<div>
-				<button className="add-button" id="todo-add" onClick={handleAddNewTodo}>Add</button>
+				<Button classNames="todo-add" handleOnClick={handleAddNewTodo}>Add</Button>
 			</div>
 			<ul className="todo-list">
 				{todos.map((item) => {

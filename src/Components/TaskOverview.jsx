@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 
 import Task from "./Task.jsx";
 import Tile from "./ui/Tile.jsx";
+import { getActionableByDisplayName } from "../store/users.js";
 
 export default function TaskOverview({task}) {
 	const taskModal = useRef();
@@ -23,7 +24,7 @@ export default function TaskOverview({task}) {
 				</div>
 				<div className="tile-text-row">
 					<h3>Actionable by: </h3>
-					<p>{task.actionableBy || "no one"}</p>
+					<p>{getActionableByDisplayName(task.actionableBy) || "Unassigned"}</p>
 				</div>
 			</Tile>
 		</>

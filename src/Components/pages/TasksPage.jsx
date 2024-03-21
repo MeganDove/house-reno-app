@@ -1,5 +1,8 @@
 import { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import "../../Styles/TasksPage.css";
+
 import { sendTaskData, fetchTaskData } from "../../store/tasks.js";
 
 import Task from "../Task.jsx";

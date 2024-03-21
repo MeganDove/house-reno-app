@@ -1,0 +1,51 @@
+@import "../Variables/Variables.scss";
+
+@mixin icons($colour, $backgroundColour, $hoverBackgroundColour) {
+    border-radius: 500px;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    color: $colour;
+    background-color: $backgroundColour;
+    &:hover {
+        background-color: $hoverBackgroundColour;
+    }
+}
+
+#x-icon {
+    @include icons($grey, null, null);
+    float: right;
+    display: inline;
+    width: 25px;
+}
+
+#tick-icon {
+    @include icons(white, $greenIcons, $darkGreenIcons);
+    display: inline;
+    width: 25px;
+}
+
+#rounded-button {
+    @include icons(white, $orangeicons, $darkOrangeIcons);
+    float: right;
+}
+
+//TODO: MOVE THESE
+.contacts-add {
+    width: 80px;
+}
+
+.todo-add {
+    width: 50px;
+}
+
+#bin-icon {
+    @include icons(white, $redIcons, $darkRedIcons);
+    width: 25px;
+}

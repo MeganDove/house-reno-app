@@ -1,0 +1,22 @@
+@import "../Variables/Variables.scss";
+
+.menu {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $grey;
+    padding-top: 80px;
+    button {
+        padding: 20px 20px;
+        display: block;
+        text-align: right;
+        float: right;
+        @include menuItemStyle();
+        &:hover {
+            @include menuItemHoverStyle();
+        }
+    }
+}
+

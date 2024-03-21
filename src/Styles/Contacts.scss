@@ -1,0 +1,17 @@
+@import "../Variables/Variables.scss";
+
+.contacts-section {
+    @include taskListGrid();
+}
+
+.contact-section {
+    @include taskListItem();
+}
+
+.contact-details {
+    @include taskListItemDetails();
+}
+
+.contacts-list {
+    @include taskListItemList();
+}

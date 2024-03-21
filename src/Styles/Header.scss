@@ -1,0 +1,16 @@
+@import "../Variables/Variables.scss";
+
+.header {
+    background-color: $grey;
+    overflow: hidden;
+}
+
+#login {
+    float: right;
+    text-align: center;
+    padding: 14px 16px;
+    @include menuItemStyle();
+    &:hover {
+        @include menuItemHoverStyle();
+    }
+}

@@ -1,0 +1,69 @@
+@mixim inputField {
+  font-size: 15px;
+  margin-right: 5px;
+  border-style: hidden;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline;
+}
+@mixim inputFieldEditing {
+  border-radius: 5px;
+  padding: 3px;
+}
+.task-modal {
+  background-color: #ddd;
+  border-radius: 10px;
+  border: none;
+  width: 50%;
+}
+.task-modal .task-text-row {
+  text-align: left;
+  margin-top: 10px;
+}
+.task-modal .label {
+  font-size: 16px;
+  display: inline;
+  padding-right: 10px;
+}
+.task-modal .editable-field {
+  font-size: 15px;
+  margin-right: 5px;
+  border-style: hidden;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline;
+}
+.task-modal .editable-field.paragraph {
+  display: block;
+  white-space: pre-line;
+}
+.task-modal .editable-field.placeholder-text {
+  color: #505050;
+}
+.task-modal .editable-field.editing {
+  border-radius: 5px;
+  padding: 3px;
+}
+.task-modal .editable-field.editing.paragraph {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.task-modal .editable-field.title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.task-grid-container {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 60px;
+}
+
+.title-label {
+  font-weight: 600;
+}
+
+.task-main-contents {
+  margin-top: 20px;
+}/*# sourceMappingURL=Task.css.map */
