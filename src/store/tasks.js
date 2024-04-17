@@ -16,6 +16,7 @@ const slice = createSlice({
       state.tasks = action.payload.tasks || [];
     },
     addTask(state, action) {
+      console.log(action.payload);
       state.tasks.push({
         id: uuidv4(),
         title: action.payload.title,

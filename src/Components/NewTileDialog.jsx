@@ -1,33 +1,34 @@
 import { forwardRef, useRef, useContext } from "react";
 import { createPortal } from "react-dom";
-import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 import "../Styles/NewTask.css";
 
 import TickIcon from "./ui/TickIcon.jsx";
 import XIcon from "./ui/XIcon.jsx";
 
-import { tasksActions } from "../store/tasks.js";
+const NewTask = forwardRef(function NewTileDialog({dispatchNewTileAction, title, label}, ref) {
+	const newTileTitle = useRef();
 
-const NewTask = forwardRef(function NewTask({}, ref) {
-	const newTaskTitle = useRef();
-	const dispatch = useDispatch();
+	useEffect(() => {
+		newTileTitle.current.focus();
+	 }, []);
 
-	function handleSaveNewProject() {
-		dispatch(tasksActions.addTask({title: newTaskTitle.current.value}));
-		newTaskTitle.current.value = "";
+	function handleSaveNewTile() {
+		dispatchNewTileAction(newTileTitle.current.value);
+		newTileTitle.current.value = "";
 		ref.current.close();
 	}
 
 	function handleKeyPress(e) {
 		const key = e.key;
 		if(key === "Enter") {
-			handleSaveNewProject();
+			handleSaveNewTile();
 		}
 	}
 
 	function handleClose() {
-		newTaskTitle.current.value = "";
+		newTileTitle.current.value = "";
 	}
 
 	return createPortal(
@@ -37,10 +38,10 @@ const NewTask = forwardRef(function NewTask({}, ref) {
 					<XIcon />
 				</form>
 				<div className="">
-					<h1 className="">Create a new task</h1>
-					<label className="">Title:</label> 
-					<input ref={newTaskTitle} type="text" className="new-task-input" />
-					<TickIcon onClick={handleSaveNewProject} />
+					<h1 className="">{title}</h1>
+					<label className="">{label+":"}</label> 
+					<input ref={newTileTitle} type="text" className="new-task-input" autofocus="true"  />
+					<TickIcon onClick={handleSaveNewTile} />
 				</div>
 			</dialog>
 		),

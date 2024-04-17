@@ -19,18 +19,26 @@ app.use((req, res, next) => {
 
 app.get('/tasks', async (req, res) => {
   const fileContent = await fs.readFile('./data/tasks.json');
-
   const tasks = JSON.parse(fileContent);
-
   res.status(200).json({ tasks });
 });
 
 app.put('/tasks', async (req, res) => {
   const tasks = req.body.tasks;
-
   await fs.writeFile('./data/tasks.json', JSON.stringify(tasks));
-
   res.status(200).json({ message: 'Tasks updated!' });
+});
+
+app.get('/rooms', async (req, res) => {
+  const fileContent = await fs.readFile('./data/rooms.json');
+  const rooms = JSON.parse(fileContent);
+  res.status(200).json({ rooms });
+});
+
+app.put('/rooms', async (req, res) => {
+  const rooms = req.body.rooms;
+  await fs.writeFile('./data/rooms.json', JSON.stringify(rooms));
+  res.status(200).json({ message: 'Rooms updated!' });
 });
 
 // 404

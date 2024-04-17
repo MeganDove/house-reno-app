@@ -3,12 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "../../Styles/TasksPage.css";
 
-import { sendTaskData, fetchTaskData } from "../../store/tasks.js";
+import { sendTaskData, fetchTaskData, tasksActions } from "../../store/tasks.js";
 
-import Task from "../Task.jsx";
 import TaskOverview from "../TaskOverview.jsx";
 import Tile from "../ui/Tile.jsx";
-import NewTask from "../NewTask.jsx";
+import NewTileDialog from "../NewTileDialog.jsx";
 
 let isInitial = true;
 
@@ -40,7 +39,12 @@ export default function TasksPage() {
 
 	return (
 		<>
-			<NewTask ref={newTaskModal} />
+			<NewTileDialog
+				ref={newTaskModal}
+				dispatchNewTileAction={(value) => dispatch(tasksActions.addTask({title: value}))}
+				title="Create a new task"
+				label="Title"
+			/>
 			<div className="grid-container">
 				{
 					tasks.length ? tasks.map((task) => <TaskOverview key={task.id} task={task}/>) : undefined

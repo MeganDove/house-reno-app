@@ -1,15 +1,16 @@
-import { createStore } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import tasksReducer from "./tasks.js";
-import usersReducer from "./users.js"
+import usersReducer from "./users.js";
+import roomsReducer from "./rooms.js";
 import pageStateReducer from "./pageState.js";
 
 const store = configureStore({
 	reducer: {
 		pageState: pageStateReducer,
 		tasks: tasksReducer,
-		users: usersReducer
+		users: usersReducer,
+		rooms: roomsReducer
 	}
 });
 
