@@ -16,11 +16,7 @@ export default function RoomsPage() {
 	const { rooms, changed } = useSelector(state => state.rooms);
 	const newRoomModal = useRef();
 	const dispatch = useDispatch();
-	// TODO: const notification = useSelector((state) => state.userState.notification);
-
-	useEffect(() => {
-	    dispatch(fetchRoomData());
-	}, [dispatch]);
+	const notification = useSelector((state) => state.pageState.notification);
 
 	useEffect(() => {
 		if(isInitial) {
@@ -38,7 +34,9 @@ export default function RoomsPage() {
 		newRoomModal.current.showModal();
 	}
 
-	return (
+	if(notification) {
+		return (<h3>{notification.message}</h3>);
+	} else return (
 		<>
 			<NewTileDialog
 				ref={newRoomModal}

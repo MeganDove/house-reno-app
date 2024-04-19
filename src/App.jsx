@@ -1,30 +1,33 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "./Styles/App.scss";
-
-import { pageStateActions } from "./store/pageState.js";
-
-import Menu from "./Components/menu/Menu.jsx";
-import Header from "./Components/menu/Header.jsx";
 
 import TasksPage from "./Components/pages/TasksPage.jsx";
 import RoomsPage from "./Components/pages/RoomsPage.jsx";
 import FundsPage from "./Components/pages/FundsPage.jsx";
+import RootLayout from "./Components/pages/RootLayout.jsx";
+
+import { fetchTaskData } from "./store/tasks.js";
+import { fetchRoomData } from "./store/rooms.js";
 
 function App() {
-  const pageState = useSelector(state => state.pageState.currentPage);
+  const dispatch = useDispatch();
+
+  const router = createBrowserRouter([
+    { 
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        { path: "/tasks", element: <TasksPage />, loader: () => {dispatch(fetchTaskData()); return null;} },
+        { path: "/rooms", element: <RoomsPage />, loader: () => {dispatch(fetchRoomData()); return null;} },
+        { path: "/funds", element: <FundsPage /> }
+      ]
+    }
+  ]);
 
   return (
-    <>
-      <Menu/>
-      <Header />
-      <div id="main-contents">
-        {pageState === "tasks" && <TasksPage />}
-        {pageState === "rooms" && <RoomsPage />}
-        {pageState === "funds" && <FundsPage />}
-      </div>
-    </>
+    <RouterProvider router={router} />
   );
 }
 

@@ -15,19 +15,15 @@ export default function TasksPage() {
 	const { tasks, changed } = useSelector(state => state.tasks);
 	const newTaskModal = useRef();
 	const dispatch = useDispatch();
-	// TODO: const notification = useSelector((state) => state.userState.notification);
-	console.log(tasks);
 
-	useEffect(() => {
-	    dispatch(fetchTaskData());
-	}, [dispatch]);
+	const notification = useSelector((state) => state.pageState.notification);
+	console.log(notification);
 
 	useEffect(() => {
 		if(isInitial) {
 	    	isInitial = false;
 	      	return;
 	    }
-	    console.log(changed);
 		if(changed) {
 		    dispatch(sendTaskData(tasks));
 		}
@@ -37,7 +33,9 @@ export default function TasksPage() {
 		newTaskModal.current.showModal();
 	}
 
-	return (
+	if(notification) {
+		return (<h3>{notification.message}</h3>);
+	} else return (
 		<>
 			<NewTileDialog
 				ref={newTaskModal}
