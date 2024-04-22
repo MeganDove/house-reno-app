@@ -33,7 +33,7 @@ export default function TasksPage() {
 		newTaskModal.current.showModal();
 	}
 
-	if(notification) {
+	if(notification && notification.status === "error") {
 		return (<h3>{notification.message}</h3>);
 	} else return (
 		<>
